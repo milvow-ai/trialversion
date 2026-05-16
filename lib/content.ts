@@ -44,24 +44,6 @@ export const CENTRE = {
   ],
 };
 
-export const WHY_CHOOSE = [
-  {
-    icon: "award",
-    title: "High Standard of Dentistry",
-    desc: "We provide comprehensive treatment planning and follow strict standards that ensure your surgery will go smoothly and provide the results you desire.",
-  },
-  {
-    icon: "users",
-    title: "Committed Dental Team",
-    desc: "Our administrative and clinical team is second to none. They are experienced, highly trained, friendly, and intuitive regarding your needs and will make your visits run effectively.",
-  },
-  {
-    icon: "tool",
-    title: "Modern Equipment",
-    desc: "We have a high attention to detail when it comes to our work and invested heavily in their instruments and equipment to give patients the best possible care and treatment.",
-  },
-] as const;
-
 export const TESTIMONIALS = [
   {
     text: "The doctor is really polite and humorous with a completely professional staff around him which made sure that all the covid safety protocols are being followed to keep everyone safe.",

@@ -26,6 +26,7 @@ const config: Config = {
           DEFAULT: "#ffffff",
           soft: "#f9fafb",
           card: "#f3f4f6",
+          tint: "#f0f4f8",
         },
       },
       fontFamily: {

@@ -1,6 +1,8 @@
 import { TopBar } from "./sections/TopBar";
 import { Navbar } from "./sections/Navbar";
 import { Hero } from "./sections/Hero";
+import { About } from "./sections/About";
+import { DentalCentre } from "./sections/DentalCentre";
 import { SideWidget } from "./sections/SideWidget";
 
 export default function HomePage() {
@@ -9,19 +11,17 @@ export default function HomePage() {
       <TopBar />
       <Navbar />
       <Hero />
+      <About />
+      <DentalCentre />
 
-      <section className="min-h-[40vh] flex items-center justify-center px-4 bg-surface-soft">
+      <section className="min-h-[30vh] flex items-center justify-center px-4 bg-surface">
         <div className="text-center max-w-md">
           <div className="text-brand-light text-xs font-semibold uppercase tracking-widest mb-2">
             In progress
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-ink mb-3">
-            Hero is live — next up: About
+            About + Centre are live — next: Services
           </h2>
-          <p className="text-ink-muted text-sm">
-            Look for the right-side floating widget (Location / Working Time / Request Form)
-            on desktop ≥1024px.
-          </p>
           <div className="w-16 h-1 bg-brand mt-6 mx-auto rounded" />
         </div>
       </section>

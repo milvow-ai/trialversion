@@ -9,8 +9,19 @@ export const NAV_LINKS = [
 ];
 
 export const HERO = {
-  title: "YOUR SMILE IS YOUR\nIDENTITY AND",
-  subtitle: "Dr Goel's Dental Clinic is committed\nto taking good care of it!",
+  title: "Daily Dental Care for\na Healthy Smile",
+  subtitle: "We are ready to serve you with\npleasure and fast response",
+  servicePill: "24/7 Service Available",
+  doctorsBadge: "More than 2k+ Doctors\nin your door",
+  specialistsBadge: "Our Specialist Doctors",
+  insights: {
+    label: "Insights",
+    delta: "20%",
+    patient: { initial: "J", name: "Junaki", meta: "32 y.o (Female)" },
+    report: { title: "Monthly Report", period: "Oct" },
+    metric: "90",
+    unit: "mg/dL",
+  },
 };
 
 export const ABOUT = {

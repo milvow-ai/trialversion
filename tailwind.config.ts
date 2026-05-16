@@ -34,6 +34,9 @@ const config: Config = {
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",
         "slide-up": "slideUp 0.6s ease-out forwards",
+        kenburns: "kenburns 22s ease-in-out infinite alternate",
+        float: "float 6s ease-in-out infinite",
+        "float-delayed": "float 6s ease-in-out 2s infinite",
       },
       keyframes: {
         fadeIn: {
@@ -43,6 +46,14 @@ const config: Config = {
         slideUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        kenburns: {
+          "0%": { transform: "scale(1.06) translate(0, 0)" },
+          "100%": { transform: "scale(1.14) translate(-1.5%, 1%)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
         },
       },
       boxShadow: {

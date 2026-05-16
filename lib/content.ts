@@ -44,37 +44,6 @@ export const CENTRE = {
   ],
 };
 
-export const SERVICES = [
-  {
-    title: "Invisalign",
-    desc: "Invisalign® takes a modern approach to straightening teeth, using a custom-made series of aligners created for you and only you.",
-    icon: "tooth",
-    image: null,
-    hasKnowMore: false,
-  },
-  {
-    title: "Orthodontic",
-    desc: "Dental braces (also known as orthodontic braces) are a device used in orthodontics to align teeth and their position with regard to a person's bite.",
-    icon: null,
-    image: "/images/services/braces.jpg",
-    hasKnowMore: true,
-  },
-  {
-    title: "Dental Implant",
-    desc: "A dental implant is an artificial tooth root replacement and is used in prosthetic dentistry to support restorations that resemble a tooth or group of teeth.",
-    icon: null,
-    image: "/images/services/implant.jpg",
-    hasKnowMore: true,
-  },
-  {
-    title: "General Dentistry",
-    desc: "Dentistry involves the prevention, diagnosis, and treatment of a wide variety of conditions, disorders, and diseases, affecting the teeth and gums.",
-    icon: "tooth",
-    image: null,
-    hasKnowMore: false,
-  },
-] as const;
-
 export const WHY_CHOOSE = [
   {
     icon: "award",

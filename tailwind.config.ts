@@ -31,12 +31,17 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
+      spacing: {
+        "13": "3.25rem",
+      },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",
         "slide-up": "slideUp 0.6s ease-out forwards",
         kenburns: "kenburns 22s ease-in-out infinite alternate",
         float: "float 6s ease-in-out infinite",
         "float-delayed": "float 6s ease-in-out 2s infinite",
+        "pulse-ring": "pulseRing 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "float-y": "floatY 4s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -54,6 +59,14 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
+        },
+        pulseRing: {
+          "0%": { transform: "scale(1)", opacity: "0.5" },
+          "100%": { transform: "scale(1.18)", opacity: "0" },
+        },
+        floatY: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
       boxShadow: {

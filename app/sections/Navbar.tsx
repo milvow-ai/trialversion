@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/content";
 import { CLINIC } from "@/lib/constants";
+import { Logo } from "@/components/ui/Logo";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,18 +24,8 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white text-xs font-bold">
-            Dr
-          </div>
-          <div>
-            <div className="text-brand font-bold text-sm leading-tight">
-              {CLINIC.name}
-            </div>
-            <div className="text-ink-muted text-[10px] leading-tight">
-              Dental & Orthodontic Centre
-            </div>
-          </div>
+        <Link href="/" aria-label={CLINIC.fullName} className="flex items-center">
+          <Logo variant="light" height={44} />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-6">

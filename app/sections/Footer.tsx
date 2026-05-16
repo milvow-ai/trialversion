@@ -11,6 +11,7 @@ import {
 import { CLINIC } from "@/lib/constants";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 
 const QUICK_MENU = [
   { label: "Invisalign", href: "#services" },
@@ -28,16 +29,12 @@ export function Footer() {
       <Container className="relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <div className="w-11 h-11 bg-white/10 group-hover:bg-white/20 rounded-full flex items-center justify-center text-white font-bold transition-colors">
-                Dr
-              </div>
-              <div>
-                <div className="font-bold text-sm">{CLINIC.name}</div>
-                <div className="text-brand-100 text-xs">
-                  Dental & Orthodontic Centre
-                </div>
-              </div>
+            <Link
+              href="/"
+              aria-label={CLINIC.fullName}
+              className="inline-flex items-center mb-4"
+            >
+              <Logo variant="dark" height={44} />
             </Link>
             <p className="text-brand-100 text-xs leading-relaxed mb-5 max-w-xs">
               Dentistry — the science behind beautiful smiles. Imagine waking up

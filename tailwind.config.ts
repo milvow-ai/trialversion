@@ -27,6 +27,7 @@ const config: Config = {
           soft: "#f9fafb",
           card: "#f3f4f6",
           tint: "#f0f4f8",
+          warm: "#f4f6f9",
         },
       },
       fontFamily: {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, Search, LayoutGrid } from "lucide-react";
 import { NAV_LINKS } from "@/lib/content";
 import { CLINIC } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
@@ -28,19 +28,41 @@ export function Navbar() {
           <Logo variant="light" height={44} />
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-6">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                className="text-ink text-sm font-medium hover:text-brand transition-colors relative group"
+        <div className="hidden lg:flex items-center gap-6">
+          <ul className="flex items-center gap-6">
+            {NAV_LINKS.map((link, i) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className={`text-sm transition-colors hover:text-brand ${
+                    i === 0
+                      ? "text-brand font-semibold"
+                      : "text-ink font-medium"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-4 border-l border-gray-200 pl-5 h-5">
+            {[
+              { Icon: ShoppingCart, label: "Cart" },
+              { Icon: Search, label: "Search" },
+              { Icon: LayoutGrid, label: "Menu" },
+            ].map(({ Icon, label }) => (
+              <button
+                key={label}
+                type="button"
+                aria-label={label}
+                className="text-gray-500 hover:text-brand transition-colors cursor-pointer"
               >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all duration-300 group-hover:w-full" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+                <Icon className="w-5 h-5" />
+              </button>
+            ))}
+          </div>
+        </div>
 
         <button
           className="lg:hidden p-2 text-ink"

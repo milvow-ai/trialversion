@@ -4,6 +4,9 @@ import { useInView } from "@/lib/hooks";
 import { HERO } from "@/lib/content";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80";
+
 export function Hero() {
   const { ref, inView } = useInView(0.1);
   const titleLines = HERO.title.split("\n");
@@ -41,8 +44,8 @@ export function Hero() {
 
       <div className="hidden md:block w-1/2 relative">
         <ImageWithFallback
-          src="/images/hero/doctor-working.jpg"
-          alt="Dr. Goel treating a patient"
+          src={HERO_IMAGE}
+          alt="Dentist treating a patient"
           fill
           priority
           sizes="50vw"

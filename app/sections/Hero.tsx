@@ -61,8 +61,21 @@ export function Hero() {
   };
 
   return (
-    <section className="bg-surface-soft px-3 md:px-6 py-6 md:py-10">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative bg-gradient-to-br from-brand-50 via-surface-soft to-brand-100/60 px-3 md:px-6 py-8 md:py-14 overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/4 w-[36rem] h-[36rem] rounded-full bg-brand-100 opacity-40 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-brand-50 opacity-70 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/3 -left-24 w-72 h-72 rounded-full bg-brand-200/40 opacity-50 blur-3xl"
+      />
+
+      <div className="relative max-w-7xl mx-auto">
         <div
           style={{
             transitionTimingFunction: EASE,

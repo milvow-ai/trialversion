@@ -8,7 +8,11 @@ import { WhyChooseUs } from "./sections/WhyChooseUs";
 import { Testimonials } from "./sections/Testimonials";
 import { Stats } from "./sections/Stats";
 import { FAQ } from "./sections/FAQ";
+import { SmileGallery } from "./sections/SmileGallery";
+import { Contact } from "./sections/Contact";
+import { Footer } from "./sections/Footer";
 import { SideWidget } from "./sections/SideWidget";
+import { FloatingCTA } from "./sections/FloatingCTA";
 
 export default function HomePage() {
   return (
@@ -23,19 +27,11 @@ export default function HomePage() {
       <Testimonials />
       <Stats />
       <FAQ />
-
-      <section className="min-h-[20vh] flex items-center justify-center px-4 bg-surface-soft">
-        <div className="text-center max-w-md">
-          <div className="text-brand-light text-xs font-semibold uppercase tracking-widest mb-2">
-            In progress
-          </div>
-          <h2 className="text-xl md:text-2xl font-extrabold text-ink">
-            Testimonials + Stats + FAQ live — next: Gallery + Contact + Footer
-          </h2>
-        </div>
-      </section>
-
+      <SmileGallery />
+      <Contact />
+      <Footer />
       <SideWidget />
+      <FloatingCTA />
     </main>
   );
 }

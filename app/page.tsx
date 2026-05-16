@@ -2,8 +2,6 @@ import { TopBar } from "./sections/TopBar";
 import { Navbar } from "./sections/Navbar";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
-import { FamilyServices } from "./sections/FamilyServices";
-import { PhotoStrip } from "./sections/PhotoStrip";
 import { DentalCentre } from "./sections/DentalCentre";
 import { Services } from "./sections/Services";
 import { WhyChooseUs } from "./sections/WhyChooseUs";
@@ -13,6 +11,7 @@ import { FAQ } from "./sections/FAQ";
 import { SmileGallery } from "./sections/SmileGallery";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
+import { SideWidget } from "./sections/SideWidget";
 import { FloatingCTA } from "./sections/FloatingCTA";
 
 export default function HomePage() {
@@ -22,8 +21,6 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <About />
-      <FamilyServices />
-      <PhotoStrip />
       <DentalCentre />
       <Services />
       <WhyChooseUs />
@@ -33,6 +30,7 @@ export default function HomePage() {
       <SmileGallery />
       <Contact />
       <Footer />
+      <SideWidget />
       <FloatingCTA />
     </main>
   );

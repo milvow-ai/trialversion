@@ -1,0 +1,295 @@
+{
+  "project": {
+    "name": "Great White Smiles",
+    "type": "Dental Clinic Website",
+    "platform": "Webflow",
+    "style": "Modern Premium Local Dental Clinic",
+    "tone": [
+      "Friendly",
+      "Human",
+      "Trustworthy",
+      "Relaxed",
+      "Family-oriented",
+      "Community-focused"
+    ],
+    "primary_goal": "Convert visitors into booked dental appointments",
+    "secondary_goals": [
+      "Build trust",
+      "Reduce fear of dentists",
+      "Show community connection",
+      "Promote family convenience",
+      "Highlight experience and affordability"
+    ],
+    "branding_keywords": [
+      "Warm",
+      "Clean",
+      "Modern",
+      "Friendly",
+      "Minimal",
+      "Soft premium",
+      "Professional",
+      "Comforting"
+    ]
+  },
+  "global_structure": {
+    "layout_type": "Long scrolling marketing website",
+    "grid_system": "Centered max-width container",
+    "navigation_style": "Sticky top navigation",
+    "design_language": {
+      "corners": "Rounded",
+      "spacing": "Large whitespace",
+      "typography": "Large editorial headings with clean sans-serif body",
+      "imagery": "Lifestyle-focused dental imagery",
+      "motion": "Soft fade-ins and subtle scroll transitions",
+      "cards": "Rounded floating cards",
+      "backgrounds": "Mostly white with soft gray sections"
+    }
+  },
+  "header": {
+    "type": "Sticky navbar",
+    "sections": [
+      { "component": "Logo", "position": "Left" },
+      {
+        "component": "Navigation Links",
+        "items": ["Treatments", "Finance", "About", "Contact", "Blog"],
+        "position": "Center"
+      },
+      { "component": "Phone Number", "text": "(02) 9520 6348", "position": "Right" },
+      { "component": "CTA Button", "text": "Book online", "style": "Rounded button", "position": "Far right" }
+    ],
+    "behavior": {
+      "sticky": true,
+      "scroll_effect": "Subtle background blur/fill on scroll"
+    }
+  },
+  "hero_section": {
+    "id": "hero",
+    "layout": "Two-column asymmetrical",
+    "left_content": {
+      "eyebrow": "Dentist Engadine",
+      "heading": "Proudly serving locals for over 15 years",
+      "subheading": "There's always a great white smile here for you",
+      "cta_buttons": ["Book online"]
+    },
+    "right_content": {
+      "type": "Image collage",
+      "style": "Rounded overlapping floating images"
+    },
+    "visual_style": {
+      "background": "White",
+      "text_alignment": "Left",
+      "spacing": "Very spacious",
+      "image_effects": ["Rounded corners", "Soft shadows", "Layered composition"]
+    },
+    "animations": {
+      "heading": "Fade-up",
+      "images": "Parallax/float effect",
+      "buttons": "Hover grow effect"
+    }
+  },
+  "trust_section": {
+    "id": "emotional-positioning",
+    "heading": "What if going to the dentist was like catching up with an old friend",
+    "content": "Focuses on emotional comfort and trust-building",
+    "doctor_highlight": {
+      "name": "Dr Mark Wiggins",
+      "positioning": ["Community member", "Friendly personality", "Experienced dentist"]
+    },
+    "design": {
+      "layout": "Split section",
+      "image_side": "Doctor lifestyle imagery",
+      "text_side": "Large storytelling copy"
+    }
+  },
+  "testimonial_section": {
+    "id": "testimonials",
+    "heading": "What our friendly patients have to say about us",
+    "layout": "Horizontal testimonial cards",
+    "card_style": {
+      "background": "White",
+      "corners": "Rounded",
+      "shadow": "Soft shadow",
+      "spacing": "Wide padding"
+    },
+    "testimonial_items": [
+      { "name": "Larni Killarney", "location": "New South Wales", "quote_style": "Short emotional reassurance" },
+      { "name": "Patsy Nagle", "location": "New South Wales", "quote_style": "Pleasant experience emphasis" },
+      { "name": "Warren Wise", "location": "New South Wales", "quote_style": "Friendly clinic atmosphere" },
+      { "name": "Lee Mitchell", "location": "New South Wales", "quote_style": "Smooth patient journey" }
+    ],
+    "animations": {
+      "cards": "Horizontal slide/fade",
+      "hover": "Slight elevation"
+    }
+  },
+  "value_proposition_section": {
+    "id": "benefits",
+    "heading": "Experience matters, and so do you",
+    "layout": "Three-column icon cards",
+    "items": [
+      { "title": "Experienced dental care" },
+      { "title": "Family appointment convenience" },
+      { "title": "Health funds and payment plans" }
+    ],
+    "style": {
+      "icons": "Illustrative minimal icons",
+      "cards": "Minimal floating blocks"
+    }
+  },
+  "services_section": {
+    "id": "treatments",
+    "heading": "Our treatments",
+    "layout": "Vertical service cards",
+    "services": [
+      { "title": "Dental Check-up and Clean", "description": "Keep your teeth in tip-top shape" },
+      { "title": "Tooth Fillings", "description": "Get on top of cavities quickly and painlessly" },
+      { "title": "Cosmetic Dental", "description": "Fill in any gaps and perfect your smile" },
+      { "title": "Children's Dental", "description": "Proper care for your growing family members" },
+      { "title": "Emergency Dental", "description": "Don't suffer - get help straight away" },
+      { "title": "Dental Implants", "description": "Missing teeth? Let us help." }
+    ],
+    "card_design": {
+      "image_position": "Right",
+      "text_position": "Left",
+      "hover_effect": "Image reveal or lift"
+    }
+  },
+  "finance_section": {
+    "id": "finance",
+    "heading": "Dentistry doesn't have to break the bank",
+    "goal": "Reduce pricing anxiety",
+    "content_style": "Educational reassurance",
+    "cta": "See payment plans",
+    "design": {
+      "background": "Soft neutral",
+      "layout": "Centered storytelling"
+    }
+  },
+  "final_cta_section": {
+    "id": "final-booking",
+    "heading": "Book online with your Engadine dentist now",
+    "primary_cta": "Book online",
+    "secondary_cta": "Call (02) 9520 6348",
+    "purpose": "Final conversion push",
+    "design": {
+      "large_typography": true,
+      "centered_layout": true,
+      "supportive_image": true
+    }
+  },
+  "footer": {
+    "layout": "Multi-column",
+    "sections": [
+      { "type": "Clinic info" },
+      { "type": "Treatments links" },
+      { "type": "Operating hours" },
+      { "type": "Address" },
+      { "type": "Navigation links" }
+    ],
+    "details": {
+      "address": "Appian Corner, Suite 4/69 Station Street Engadine, NSW 2233 Australia",
+      "hours": "Monday - Friday 9.00AM - 5.30PM"
+    },
+    "legal": ["Copyright 2021", "Medical disclaimer", "Cookie notice"]
+  },
+  "blog_page": {
+    "page_type": "CMS blog listing",
+    "hero": { "heading": "Our blog" },
+    "features": [
+      "Category filters",
+      "Card-based articles",
+      "Thumbnail images",
+      "Author metadata",
+      "Date metadata"
+    ],
+    "categories": [
+      "General dentistry",
+      "Cosmetic dentistry",
+      "Children's dentistry",
+      "Missing Teeth"
+    ],
+    "card_style": {
+      "rounded": true,
+      "minimal": true,
+      "image_top": true
+    }
+  },
+  "contact_page": {
+    "hero_heading": "Contact Your Local Engadine Dentist",
+    "sections": [
+      { "type": "Contact info" },
+      { "type": "Map/location" },
+      { "type": "Opening hours" },
+      { "type": "Contact form" }
+    ],
+    "form_fields": ["Phone", "Email"],
+    "conversion_elements": ["Book online", "Call now"]
+  },
+  "design_system": {
+    "colors": {
+      "primary": "#0F1720",
+      "secondary": "#FFFFFF",
+      "accent": "#E7F0EC",
+      "text": "#1A1A1A",
+      "muted_text": "#666666"
+    },
+    "typography": {
+      "heading_style": "Bold editorial sans-serif",
+      "body_style": "Modern clean sans-serif",
+      "heading_weight": "700-800",
+      "body_weight": "400-500"
+    },
+    "buttons": {
+      "shape": "Rounded pill",
+      "hover": "Slight scale and shadow"
+    },
+    "spacing": {
+      "section_padding": "120px+",
+      "container_width": "1200px approx"
+    }
+  },
+  "ux_strategy": {
+    "psychology": [
+      "Reduce dental anxiety",
+      "Create familiarity",
+      "Humanize the dentist",
+      "Increase trust",
+      "Encourage booking action"
+    ],
+    "conversion_methods": [
+      "Repeated CTA buttons",
+      "Social proof",
+      "Friendly copywriting",
+      "Community trust positioning",
+      "Family convenience messaging"
+    ]
+  },
+  "animation_system": {
+    "overall_style": "Subtle modern Webflow animations",
+    "types": [
+      "Fade-up on scroll",
+      "Image float/parallax",
+      "Card hover lift",
+      "Button hover scale",
+      "Smooth section reveal"
+    ],
+    "motion_intensity": "Low to medium",
+    "feel": "Elegant and calm"
+  },
+  "technical_structure": {
+    "cms": true,
+    "responsive": true,
+    "seo_structure": {
+      "heading_hierarchy": true,
+      "service_pages": true,
+      "blog_content": true
+    },
+    "performance_style": "Image-heavy but optimized"
+  },
+  "site_summary": {
+    "core_feeling": "A premium but approachable local dental clinic",
+    "main_conversion_message": "Friendly experienced dentist who genuinely cares",
+    "design_goal": "Make dentistry feel safe, modern, and human"
+  },
+  "source": "https://great-white-smiles-c917dcb12beab3e07dfe.webflow.io/"
+}

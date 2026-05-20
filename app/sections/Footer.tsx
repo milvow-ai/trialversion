@@ -6,39 +6,42 @@ import {
   Facebook,
   Instagram,
   Youtube,
-  ChevronRight,
+  Clock,
 } from "lucide-react";
 import { CLINIC } from "@/lib/constants";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 
-const QUICK_MENU = [
-  { label: "Invisalign", href: "#services" },
-  { label: "Dental Implant", href: "#services" },
-  { label: "Orthodontic", href: "#services" },
-  { label: "Cosmetic Dentistry", href: "#services" },
+const TREATMENT_LINKS = [
+  { label: "Check-up & Clean", href: "#treatments" },
+  { label: "Cosmetic Dental", href: "#treatments" },
+  { label: "Children's Dental", href: "#treatments" },
+  { label: "Dental Implants", href: "#treatments" },
+  { label: "Emergency Dental", href: "#treatments" },
+];
+
+const NAV_LINKS = [
+  { label: "About", href: "#about" },
+  { label: "Treatments", href: "#treatments" },
+  { label: "Finance", href: "#finance" },
+  { label: "Contact", href: "#final-booking" },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative bg-brand-dark text-white pt-16 pb-6 px-4 overflow-hidden">
-      <div className="pointer-events-none absolute top-0 right-0 w-96 h-96 rounded-full bg-brand opacity-20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 w-80 h-80 rounded-full bg-brand-light opacity-10 blur-3xl" />
-
-      <Container className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-          <div>
+    <footer className="bg-brand text-white pt-24 pb-10 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          <div className="lg:col-span-4">
             <Link
               href="/"
               aria-label={CLINIC.fullName}
-              className="inline-flex items-center mb-4"
+              className="inline-flex items-center mb-6"
             >
               <Logo variant="dark" height={44} />
             </Link>
-            <p className="text-brand-100 text-xs leading-relaxed mb-5 max-w-xs">
-              Dentistry — the science behind beautiful smiles. Imagine waking up
-              with a brand new smile.
+            <p className="text-white/65 text-sm leading-relaxed max-w-xs mb-6">
+              Friendly, family-focused dental care in Hauz Khas, New Delhi.
+              24 years of looking after local smiles.
             </p>
             <div className="flex items-center gap-3">
               {[
@@ -50,7 +53,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white hover:text-brand-dark text-white flex items-center justify-center transition-all hover:-translate-y-1"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent hover:text-brand text-white flex items-center justify-center transition-all"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -58,18 +61,17 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-brand-100">
-              Quick Menu
+          <div className="lg:col-span-2">
+            <h4 className="text-white text-xs font-semibold uppercase tracking-[0.2em] mb-5">
+              Treatments
             </h4>
-            <ul className="space-y-2.5">
-              {QUICK_MENU.map((item) => (
+            <ul className="space-y-3">
+              {TREATMENT_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-100 text-sm hover:text-white transition-colors inline-flex items-center gap-1.5 group"
+                    className="text-white/65 text-sm hover:text-white transition-colors"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-brand-light group-hover:translate-x-1 transition-transform" />
                     {item.label}
                   </Link>
                 </li>
@@ -77,54 +79,76 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-5 text-brand-100">
-              Our Contacts
+          <div className="lg:col-span-2">
+            <h4 className="text-white text-xs font-semibold uppercase tracking-[0.2em] mb-5">
+              Navigate
             </h4>
-            <ul className="space-y-3 mb-5">
-              <li className="flex items-start gap-2.5 text-brand-100 text-xs leading-relaxed">
-                <MapPin className="w-4 h-4 text-brand-light mt-0.5 flex-shrink-0" />
+            <ul className="space-y-3">
+              {NAV_LINKS.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-white/65 text-sm hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-4">
+            <h4 className="text-white text-xs font-semibold uppercase tracking-[0.2em] mb-5">
+              Visit us
+            </h4>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3 text-white/65 leading-relaxed">
+                <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                 <span>{CLINIC.address}</span>
+              </li>
+              <li className="flex items-center gap-3 text-white/65">
+                <Clock className="w-4 h-4 text-accent flex-shrink-0" />
+                <span>Mon – Fri, 9:00 AM – 8:00 PM</span>
               </li>
               <li>
                 <a
                   href={`tel:${CLINIC.phone}`}
-                  className="flex items-center gap-2.5 text-brand-100 text-xs hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-white hover:text-accent transition-colors font-medium"
                 >
-                  <Phone className="w-4 h-4 text-brand-light flex-shrink-0" />
-                  {CLINIC.phone}
+                  <Phone className="w-4 h-4 text-accent flex-shrink-0" />
+                  {CLINIC.phoneFormatted}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${CLINIC.email}`}
-                  className="flex items-center gap-2.5 text-brand-100 text-xs hover:text-white transition-colors break-all"
+                  className="flex items-center gap-3 text-white/65 hover:text-white transition-colors break-all"
                 >
-                  <Mail className="w-4 h-4 text-brand-light flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-accent flex-shrink-0" />
                   {CLINIC.email}
                 </a>
               </li>
             </ul>
-            <Button variant="outline-invert" size="sm" href={CLINIC.mapUrl}>
-              <MapPin className="w-3.5 h-3.5" />
-              Get directions on the map
-            </Button>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-brand-100 text-xs">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/50 text-xs">
           <span>
             © {new Date().getFullYear()} {CLINIC.fullName}. All rights reserved.
           </span>
-          <a
-            href={`tel:${CLINIC.phone}`}
-            className="hover:text-white transition-colors flex items-center gap-1.5"
-          >
-            <Phone className="w-3.5 h-3.5" />
-            For Contact: {CLINIC.phone}
-          </a>
+          <div className="flex items-center gap-5">
+            <a href="#" className="hover:text-white transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Medical disclaimer
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Cookies
+            </a>
+          </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

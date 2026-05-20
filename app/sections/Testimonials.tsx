@@ -1,104 +1,91 @@
 "use client";
 
-import { useState } from "react";
-import { Quote } from "lucide-react";
 import { useInView } from "@/lib/hooks";
-import { TESTIMONIALS } from "@/lib/content";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Container } from "@/components/ui/Container";
 
-function TestimonialCard({
-  text,
-  author,
-  delay = 0,
-  visible,
-}: {
-  text: string;
-  author: string;
-  delay?: number;
-  visible: boolean;
-}) {
-  return (
-    <div
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`relative bg-surface-soft rounded-2xl p-8 overflow-hidden border border-transparent hover:border-brand-100 hover:-translate-y-2 hover:shadow-card-hover transition-all duration-500 group ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-brand-50 opacity-60 group-hover:scale-125 transition-transform duration-700" />
-      <Quote className="relative w-10 h-10 text-brand opacity-20 mb-4 group-hover:opacity-40 group-hover:rotate-[-8deg] transition-all duration-500" />
-      <p className="relative text-ink-muted text-sm leading-relaxed italic mb-6">
-        {text}
-      </p>
-      <div className="relative flex items-center gap-3">
-        <div className="relative w-11 h-11 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm shadow-card">
-          <span className="absolute inset-0 rounded-full bg-brand animate-ping opacity-0 group-hover:opacity-30" />
-          {author[0]}
-        </div>
-        <div>
-          <div className="font-semibold text-ink text-sm">{author}</div>
-          <div className="text-brand-light text-[11px] font-medium tracking-wide">
-            Verified patient
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+interface Testimonial {
+  name: string;
+  location: string;
+  quote: string;
 }
 
+const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Sidharth Bansal",
+    location: "New Delhi",
+    quote:
+      "The doctor is so polite and humorous, with a completely professional team. Every covid protocol was followed — felt safe the whole time.",
+  },
+  {
+    name: "Sia Mehta",
+    location: "Gurgaon",
+    quote:
+      "Dr Goel is absolutely amazing. Friendly, attentive, informative — he knows what he's doing. I'm super impressed with my progress.",
+  },
+  {
+    name: "Rohan Kapoor",
+    location: "New Delhi",
+    quote:
+      "Best dental experience I've had. Honest pricing, gentle hands, and they actually listen. Wouldn't go anywhere else.",
+  },
+  {
+    name: "Ananya Sharma",
+    location: "Noida",
+    quote:
+      "Took my whole family — Dr Goel and team are wonderful with kids and adults alike. Always a smooth, friendly visit.",
+  },
+];
+
 export function Testimonials() {
-  const { ref, inView } = useInView();
-  const [active, setActive] = useState(0);
+  const { ref, inView } = useInView(0.1);
 
   return (
     <section
       ref={ref}
       id="testimonial"
-      className="relative py-20 px-4 bg-surface overflow-hidden"
+      className="bg-surface-soft px-4 md:px-8 py-24 md:py-32 overflow-hidden"
     >
-      <div className="pointer-events-none absolute top-0 left-1/4 w-80 h-80 rounded-full bg-brand-50 opacity-50 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 w-96 h-96 rounded-full bg-brand-100 opacity-30 blur-3xl" />
+      <div className="max-w-7xl mx-auto">
+        <div
+          className={`max-w-3xl mb-14 transition-all duration-1000 ease-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <span className="text-accent-ink text-xs font-semibold uppercase tracking-[0.2em] block mb-5">
+            Patient stories
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink leading-[1.08] tracking-tight">
+            What our friendly patients have to say{" "}
+            <span className="italic font-medium text-accent-ink">about us</span>
+          </h2>
+        </div>
 
-      <Container className="relative">
-        <SectionHeading
-          eyebrow="What People Says"
-          title="Patient"
-          titleAccent="Testimonials"
-        />
-
-        <div className="hidden md:grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {TESTIMONIALS.map((t, i) => (
-            <TestimonialCard
-              key={t.author}
-              text={t.text}
-              author={t.author}
-              visible={inView}
-              delay={i * 150}
-            />
+            <div
+              key={t.name}
+              style={{ transitionDelay: `${i * 100}ms` }}
+              className={`group bg-surface rounded-[28px] p-7 shadow-soft hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500 ease-out ${
+                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="text-accent-ink text-3xl font-display leading-none mb-4">
+                &ldquo;
+              </div>
+              <p className="text-ink text-sm leading-relaxed mb-6">
+                {t.quote}
+              </p>
+              <div className="pt-5 border-t border-surface-card">
+                <div className="font-display font-bold text-ink text-sm">
+                  {t.name}
+                </div>
+                <div className="text-ink-muted text-xs mt-0.5">
+                  {t.location}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-
-        <div className="md:hidden">
-          <TestimonialCard
-            text={TESTIMONIALS[active].text}
-            author={TESTIMONIALS[active].author}
-            visible={inView}
-          />
-          <div className="flex justify-center gap-2 mt-6">
-            {TESTIMONIALS.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActive(i)}
-                aria-label={`Testimonial ${i + 1}`}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  i === active ? "bg-brand w-6" : "bg-surface-card w-3"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </Container>
+      </div>
     </section>
   );
 }

@@ -1,41 +1,18 @@
 "use client";
 
 import { useState, useEffect, CSSProperties } from "react";
-import {
-  Star,
-  Linkedin,
-  Instagram,
-  Twitter,
-  Download,
-  Calendar,
-  ArrowUpRight,
-  TrendingUp,
-} from "lucide-react";
-import { HERO } from "@/lib/content";
+import Link from "next/link";
+import { Phone, ArrowRight } from "lucide-react";
+import { CLINIC } from "@/lib/constants";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&q=85";
-
-const SOCIALS = [
-  { Icon: Linkedin, label: "LinkedIn" },
-  { Icon: Instagram, label: "Instagram" },
-  { Icon: Twitter, label: "Twitter" },
-];
-
-const DOCTOR_AVATARS = [
-  "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=120&q=80",
-];
-
-const SPECIALIST_AVATARS = [
-  "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=120&q=80",
-];
+const HERO_IMAGES = {
+  main: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=85",
+  smile: "https://images.unsplash.com/photo-1581585099522-f6ac2efe1925?auto=format&fit=crop&w=800&q=85",
+  child: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=85",
+};
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-const REVEAL_CLASS = "transition-all duration-1000 will-change-transform";
 
 export function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -45,249 +22,118 @@ export function Hero() {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  const revealStyle = (
-    delay: number,
-    axis: "y" | "x" = "y",
-    from = 24
-  ): CSSProperties => {
-    const offset =
-      axis === "y" ? `translateY(${from}px)` : `translateX(${from}px)`;
-    return {
-      transitionDelay: `${delay}ms`,
-      transitionTimingFunction: EASE,
-      transform: mounted ? "translate(0,0)" : offset,
-      opacity: mounted ? 1 : 0,
-    };
-  };
+  const fadeUp = (delay: number, distance = 24): CSSProperties => ({
+    transitionDelay: `${delay}ms`,
+    transitionTimingFunction: EASE,
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? "translateY(0)" : `translateY(${distance}px)`,
+  });
 
   return (
-    <section className="relative bg-gradient-to-br from-brand-50 via-surface-soft to-brand-100/60 px-3 md:px-6 py-8 md:py-14 overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/4 w-[36rem] h-[36rem] rounded-full bg-brand-100 opacity-40 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-brand-50 opacity-70 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-1/3 -left-24 w-72 h-72 rounded-full bg-brand-200/40 opacity-50 blur-3xl"
-      />
+    <section className="bg-surface pt-12 md:pt-20 pb-20 md:pb-28 px-4 md:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="lg:col-span-6 max-w-2xl">
+          <span
+            style={fadeUp(80)}
+            className="inline-block text-accent-ink text-xs font-semibold uppercase tracking-[0.2em] mb-6 transition-all duration-700"
+          >
+            Dentist Hauz Khas
+          </span>
 
-      <div className="relative max-w-7xl mx-auto">
-        <div
-          style={{
-            transitionTimingFunction: EASE,
-            transform: mounted
-              ? "translateY(0) scale(1)"
-              : "translateY(24px) scale(0.985)",
-            opacity: mounted ? 1 : 0,
-          }}
-          className="relative rounded-[28px] md:rounded-[36px] overflow-hidden shadow-card-hover bg-brand-dark transition-all duration-[1100ms] will-change-transform"
-        >
-          <div className="relative aspect-[16/11] md:aspect-[16/8] min-h-[420px] md:min-h-[560px]">
-            <div className="absolute inset-0 animate-kenburns will-change-transform">
-              <ImageWithFallback
-                src={HERO_IMAGE}
-                alt="Patient receiving dental care"
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
-              />
-            </div>
+          <h1
+            style={fadeUp(140)}
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-ink leading-[1.04] tracking-[-0.02em] mb-6 transition-all duration-1000"
+          >
+            Proudly serving locals for over{" "}
+            <span className="italic font-medium text-accent-ink">24 years</span>
+          </h1>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/55 via-brand-dark/15 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent" />
+          <p
+            style={fadeUp(280)}
+            className="text-ink-muted text-base md:text-lg leading-relaxed mb-10 max-w-md transition-all duration-1000"
+          >
+            There&apos;s always a great smile here for you at {CLINIC.name}.
+            Friendly care, modern dentistry, and a family that treats yours like
+            their own.
+          </p>
 
-            <div
-              style={revealStyle(200)}
-              className={`absolute top-4 md:top-6 left-4 md:left-8 ${REVEAL_CLASS}`}
+          <div
+            style={fadeUp(380)}
+            className="flex flex-wrap items-center gap-4 transition-all duration-1000"
+          >
+            <Link
+              href="#final-booking"
+              className="group inline-flex items-center gap-2 bg-brand text-white text-sm font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-brand-light transition-all hover:scale-[1.03] active:scale-[0.98] shadow-card"
             >
-              <div className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[11px] font-semibold text-brand-dark flex items-center gap-1.5 shadow-card">
-                <Star className="w-3 h-3 fill-brand text-brand" />
-                {HERO.servicePill}
-              </div>
-            </div>
+              Book online
+              <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white group-hover:text-brand transition-colors">
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
 
-            <div
-              style={revealStyle(280)}
-              className={`absolute top-4 md:top-6 right-4 md:right-8 ${REVEAL_CLASS}`}
+            <a
+              href={`tel:${CLINIC.phone}`}
+              className="inline-flex items-center gap-2 text-ink text-sm font-medium hover:text-brand transition-colors"
             >
-              <div className="flex items-center gap-1 bg-brand-dark/55 backdrop-blur-md rounded-full p-1 border border-white/10">
-                {SOCIALS.map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    href="#"
-                    aria-label={label}
-                    className="w-7 h-7 rounded-full hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="absolute left-4 md:left-10 lg:left-14 top-[28%] md:top-[32%] max-w-xl pr-4">
-              <h1
-                style={revealStyle(360)}
-                className={`text-white font-extrabold text-[28px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.05] tracking-tight mb-6 md:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)] ${REVEAL_CLASS}`}
-              >
-                {HERO.title.split("\n").map((line, i) => (
-                  <span key={i} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h1>
-
-              <div
-                style={revealStyle(540)}
-                className={`flex flex-wrap gap-3 ${REVEAL_CLASS}`}
-              >
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand text-white pl-3 pr-5 py-2.5 rounded-full text-sm font-semibold shadow-card-hover transition-all hover:scale-[1.03] active:scale-[0.98] border border-white/10"
-                >
-                  <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
-                    <Download className="w-3.5 h-3.5" />
-                  </span>
-                  Download App
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-brand-dark pl-3 pr-5 py-2.5 rounded-full text-sm font-semibold backdrop-blur-md transition-all hover:scale-[1.03] active:scale-[0.98] shadow-card"
-                >
-                  <span className="w-7 h-7 rounded-full bg-brand-50 flex items-center justify-center">
-                    <Calendar className="w-3.5 h-3.5 text-brand" />
-                  </span>
-                  Schedule an appointment
-                </a>
-              </div>
-            </div>
-
-            <div
-              style={revealStyle(700, "x")}
-              className={`hidden md:block absolute top-[22%] right-4 lg:right-10 w-56 animate-float ${REVEAL_CLASS}`}
-            >
-              <div className="bg-white/85 backdrop-blur-xl rounded-2xl p-4 shadow-card-hover border border-white/60">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-semibold text-ink">
-                    {HERO.insights.label}
-                  </span>
-                  <span className="text-[10px] font-bold text-brand bg-brand-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
-                    <TrendingUp className="w-2.5 h-2.5" />
-                    {HERO.insights.delta}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand text-xs font-bold">
-                    {HERO.insights.patient.initial}
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-ink leading-tight">
-                      {HERO.insights.patient.name}
-                    </div>
-                    <div className="text-[10px] text-ink-muted">
-                      {HERO.insights.patient.meta}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between text-[10px] text-ink-muted mb-1.5 pt-2 border-t border-ink/5">
-                  <span>{HERO.insights.report.title}</span>
-                  <span>{HERO.insights.report.period}</span>
-                </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-extrabold text-brand leading-none">
-                    {HERO.insights.metric}
-                  </span>
-                  <span className="text-[11px] font-medium text-ink-muted">
-                    {HERO.insights.unit}
-                  </span>
-                </div>
-                <div className="mt-2 h-1 bg-surface-card rounded-full overflow-hidden">
-                  <div
-                    style={{
-                      transitionDelay: "1200ms",
-                      transitionTimingFunction: EASE,
-                      width: mounted ? "75%" : "0%",
-                    }}
-                    className="h-full bg-gradient-to-r from-brand to-brand-light rounded-full transition-all duration-[1500ms]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div
-              style={revealStyle(820)}
-              className={`absolute bottom-4 md:bottom-6 left-4 md:left-8 ${REVEAL_CLASS}`}
-            >
-              <div className="bg-white/85 backdrop-blur-xl rounded-2xl pl-2 pr-3 py-2 flex items-center gap-3 shadow-card border border-white/60 hover:bg-white transition-colors cursor-pointer group">
-                <div className="flex -space-x-2">
-                  {DOCTOR_AVATARS.map((src, i) => (
-                    <div
-                      key={i}
-                      className="relative w-7 h-7 rounded-full overflow-hidden border-2 border-white"
-                    >
-                      <ImageWithFallback
-                        src={src}
-                        alt={`Doctor ${i + 1}`}
-                        fill
-                        sizes="32px"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <span className="text-[11px] font-semibold text-ink leading-tight whitespace-pre-line">
-                  {HERO.doctorsBadge}
-                </span>
-                <span className="w-7 h-7 rounded-full bg-brand-50 flex items-center justify-center group-hover:bg-brand transition-colors">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-brand group-hover:text-white transition-colors" />
-                </span>
-              </div>
-            </div>
-
-            <div
-              style={revealStyle(940)}
-              className={`absolute bottom-4 md:bottom-6 right-4 md:right-8 ${REVEAL_CLASS}`}
-            >
-              <div className="bg-white/95 backdrop-blur-md rounded-full pl-1 pr-4 py-1 flex items-center gap-2 shadow-card">
-                <div className="flex -space-x-1.5">
-                  {SPECIALIST_AVATARS.map((src, i) => (
-                    <div
-                      key={i}
-                      className="relative w-7 h-7 rounded-full overflow-hidden border-2 border-white"
-                    >
-                      <ImageWithFallback
-                        src={src}
-                        alt={`Specialist ${i + 1}`}
-                        fill
-                        sizes="32px"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <span className="text-[11px] font-semibold text-brand-dark flex items-center gap-1">
-                  <Star className="w-3 h-3 fill-brand text-brand" />
-                  {HERO.specialistsBadge}
-                </span>
-              </div>
-            </div>
+              <Phone className="w-4 h-4" />
+              {CLINIC.phoneFormatted}
+            </a>
           </div>
         </div>
 
-        <p
-          style={revealStyle(1080)}
-          className={`mt-5 md:mt-6 text-sm text-ink-muted max-w-[18rem] leading-relaxed ${REVEAL_CLASS}`}
-        >
-          {HERO.subtitle.split("\n").map((line, i) => (
-            <span key={i} className="block">
-              {line}
-            </span>
-          ))}
-        </p>
+        <div className="lg:col-span-6 relative h-[440px] sm:h-[520px] lg:h-[560px]">
+          <div
+            style={fadeUp(220, 40)}
+            className="absolute top-0 right-0 w-[70%] h-[72%] rounded-[32px] overflow-hidden shadow-card-hover transition-all duration-[1100ms] animate-float-slow"
+          >
+            <ImageWithFallback
+              src={HERO_IMAGES.main}
+              alt="Friendly dental care"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div
+            style={fadeUp(360, 40)}
+            className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-[28px] overflow-hidden shadow-card-hover transition-all duration-[1100ms] animate-float"
+          >
+            <ImageWithFallback
+              src={HERO_IMAGES.smile}
+              alt="A great smile"
+              fill
+              sizes="(max-width: 1024px) 100vw, 30vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div
+            style={fadeUp(500, 40)}
+            className="absolute top-[18%] left-[6%] w-32 h-32 rounded-[22px] overflow-hidden shadow-card transition-all duration-[1100ms] animate-float-delayed"
+          >
+            <ImageWithFallback
+              src={HERO_IMAGES.child}
+              alt="Family dental care"
+              fill
+              sizes="128px"
+              className="object-cover"
+            />
+          </div>
+
+          <div
+            style={fadeUp(620, 40)}
+            className="absolute bottom-[6%] right-[2%] bg-accent rounded-2xl px-4 py-3 shadow-card-hover backdrop-blur-sm transition-all duration-1000"
+          >
+            <div className="text-2xl font-display font-extrabold text-accent-ink leading-none">
+              24<span className="text-base font-semibold">+</span>
+            </div>
+            <div className="text-[10px] uppercase tracking-wider text-accent-ink/80 font-semibold mt-0.5">
+              Years caring
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

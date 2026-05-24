@@ -1,140 +1,112 @@
 "use client";
 
-import { useState, useEffect, CSSProperties } from "react";
-import Link from "next/link";
-import { Phone, ArrowRight } from "lucide-react";
-import { CLINIC } from "@/lib/constants";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Container } from "@/components/ui/Container";
 
-const HERO_IMAGES = {
-  main: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=85",
-  smile: "https://images.unsplash.com/photo-1581585099522-f6ac2efe1925?auto=format&fit=crop&w=800&q=85",
-  child: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=85",
-};
+const EASE = [0.22, 1, 0.36, 1] as const;
 
-const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+const META = [
+  { label: "Industry", value: "Healthcare" },
+  { label: "Timeline", value: "6 weeks" },
+  { label: "Services", value: "Brand · Web · Build" },
+  { label: "Platform", value: "Next.js · Vercel" },
+];
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1600&q=85";
 
 export function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  const fadeUp = (delay: number, distance = 24): CSSProperties => ({
-    transitionDelay: `${delay}ms`,
-    transitionTimingFunction: EASE,
-    opacity: mounted ? 1 : 0,
-    transform: mounted ? "translateY(0)" : `translateY(${distance}px)`,
-  });
-
   return (
-    <section className="bg-surface pt-12 md:pt-20 pb-20 md:pb-28 px-4 md:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div className="lg:col-span-6 max-w-2xl">
-          <span
-            style={fadeUp(80)}
-            className="inline-block text-accent-ink text-xs font-semibold uppercase tracking-[0.2em] mb-6 transition-all duration-700"
-          >
-            Dentist Hauz Khas
+    <section className="pt-16 md:pt-24 pb-24 md:pb-32 overflow-hidden">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="inline-flex items-center gap-2 mb-10 md:mb-14"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-ink" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
+            Case Study / 02
           </span>
+        </motion.div>
 
-          <h1
-            style={fadeUp(140)}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-ink leading-[1.04] tracking-[-0.02em] mb-6 transition-all duration-1000"
-          >
-            Proudly serving locals for over{" "}
-            <span className="italic font-medium text-accent-ink">24 years</span>
-          </h1>
-
-          <p
-            style={fadeUp(280)}
-            className="text-ink-muted text-base md:text-lg leading-relaxed mb-10 max-w-md transition-all duration-1000"
-          >
-            There&apos;s always a great smile here for you at {CLINIC.name}.
-            Friendly care, modern dentistry, and a family that treats yours like
-            their own.
-          </p>
-
-          <div
-            style={fadeUp(380)}
-            className="flex flex-wrap items-center gap-4 transition-all duration-1000"
-          >
-            <Link
-              href="#final-booking"
-              className="group inline-flex items-center gap-2 bg-brand text-white text-sm font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-brand-light transition-all hover:scale-[1.03] active:scale-[0.98] shadow-card"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="lg:col-span-7">
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.95, ease: EASE, delay: 0.05 }}
+              className="text-balance font-sans font-medium text-ink tracking-tightest leading-[0.98] text-[42px] sm:text-[58px] md:text-[72px] lg:text-[84px] mb-8 md:mb-10"
             >
-              Book online
-              <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white group-hover:text-brand transition-colors">
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              From invisible local clinic to a brand people trusted{" "}
+              <span className="italic font-normal text-ink-muted">
+                instantly.
               </span>
-            </Link>
+            </motion.h1>
 
-            <a
-              href={`tel:${CLINIC.phone}`}
-              className="inline-flex items-center gap-2 text-ink text-sm font-medium hover:text-brand transition-colors"
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.95, ease: EASE, delay: 0.2 }}
+              className="text-ink-muted text-[17px] md:text-lg leading-relaxed max-w-[44ch]"
             >
-              <Phone className="w-4 h-4" />
-              {CLINIC.phoneFormatted}
-            </a>
+              A complete redesign focused on clarity, credibility, and premium
+              perception — without losing the warmth of a neighbourhood practice.
+            </motion.p>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, ease: EASE, delay: 0.25 }}
+            className="lg:col-span-5"
+          >
+            <div className="relative aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5] rounded-media overflow-hidden bg-paper-cream shadow-soft">
+              <Image
+                src={HERO_IMAGE}
+                alt="Goel Dental redesigned"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="mt-4 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+              <span>Goel Dental — Home, 2026</span>
+              <span>01 / 06</span>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="lg:col-span-6 relative h-[440px] sm:h-[520px] lg:h-[560px]">
-          <div
-            style={fadeUp(220, 40)}
-            className="absolute top-0 right-0 w-[70%] h-[72%] rounded-[32px] overflow-hidden shadow-card-hover transition-all duration-[1100ms] animate-float-slow"
-          >
-            <ImageWithFallback
-              src={HERO_IMAGES.main}
-              alt="Friendly dental care"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div
-            style={fadeUp(360, 40)}
-            className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-[28px] overflow-hidden shadow-card-hover transition-all duration-[1100ms] animate-float"
-          >
-            <ImageWithFallback
-              src={HERO_IMAGES.smile}
-              alt="A great smile"
-              fill
-              sizes="(max-width: 1024px) 100vw, 30vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div
-            style={fadeUp(500, 40)}
-            className="absolute top-[18%] left-[6%] w-32 h-32 rounded-[22px] overflow-hidden shadow-card transition-all duration-[1100ms] animate-float-delayed"
-          >
-            <ImageWithFallback
-              src={HERO_IMAGES.child}
-              alt="Family dental care"
-              fill
-              sizes="128px"
-              className="object-cover"
-            />
-          </div>
-
-          <div
-            style={fadeUp(620, 40)}
-            className="absolute bottom-[6%] right-[2%] bg-accent rounded-2xl px-4 py-3 shadow-card-hover backdrop-blur-sm transition-all duration-1000"
-          >
-            <div className="text-2xl font-display font-extrabold text-accent-ink leading-none">
-              24<span className="text-base font-semibold">+</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.45 }}
+          className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 border-t border-ink-line"
+        >
+          {META.map((item, i) => (
+            <div
+              key={item.label}
+              className={`py-6 md:py-7 ${
+                i < META.length - 1
+                  ? "md:border-r border-ink-line/70"
+                  : ""
+              } ${
+                i < 2 ? "border-b md:border-b-0 border-ink-line/70" : ""
+              } ${i % 2 === 0 ? "pr-6" : "pl-6 md:pl-8"}`}
+            >
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-subtle mb-3">
+                {item.label}
+              </div>
+              <div className="text-ink text-[15px] font-medium">
+                {item.value}
+              </div>
             </div>
-            <div className="text-[10px] uppercase tracking-wider text-accent-ink/80 font-semibold mt-0.5">
-              Years caring
-            </div>
-          </div>
-        </div>
-      </div>
+          ))}
+        </motion.div>
+      </Container>
     </section>
   );
 }

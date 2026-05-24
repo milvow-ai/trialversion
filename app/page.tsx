@@ -1,27 +1,25 @@
-import { Navbar } from "./sections/Navbar";
+import { CaseStudyNav } from "./sections/CaseStudyNav";
 import { Hero } from "./sections/Hero";
-import { TrustSection } from "./sections/TrustSection";
-import { Testimonials } from "./sections/Testimonials";
-import { Benefits } from "./sections/Benefits";
-import { Services } from "./sections/Services";
-import { Finance } from "./sections/Finance";
+import { ProblemSection } from "./sections/ProblemSection";
+import { StrategicShift } from "./sections/StrategicShift";
+import { ResultsGrid } from "./sections/ResultsGrid";
+import { VisualShowcase } from "./sections/VisualShowcase";
+import { TestimonialQuote } from "./sections/TestimonialQuote";
 import { FinalCTA } from "./sections/FinalCTA";
 import { Footer } from "./sections/Footer";
-import { FloatingCTA } from "./sections/FloatingCTA";
 
-export default function HomePage() {
+export default function CaseStudyPage() {
   return (
-    <main className="font-sans antialiased bg-surface text-ink">
-      <Navbar />
+    <main className="bg-paper text-ink">
+      <CaseStudyNav />
       <Hero />
-      <TrustSection />
-      <Testimonials />
-      <Benefits />
-      <Services />
-      <Finance />
+      <ProblemSection />
+      <StrategicShift />
+      <ResultsGrid />
+      <VisualShowcase />
+      <TestimonialQuote />
       <FinalCTA />
       <Footer />
-      <FloatingCTA />
     </main>
   );
 }

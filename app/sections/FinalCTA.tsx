@@ -1,80 +1,65 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Phone } from "lucide-react";
-import { CLINIC } from "@/lib/constants";
-import { useInView } from "@/lib/hooks";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-
-const SUPPORT_IMAGE =
-  "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1600&q=85";
+import { ArrowUpRight } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export function FinalCTA() {
-  const { ref, inView } = useInView(0.1);
-
   return (
     <section
-      ref={ref}
-      id="final-booking"
-      className="relative bg-surface px-4 md:px-8 py-24 md:py-36 overflow-hidden"
+      id="start"
+      className="py-32 md:py-48 bg-paper-warm border-t border-ink-line/70"
     >
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <div
-          className={`mb-12 transition-all duration-1000 ease-out ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <span className="inline-block text-accent-ink text-xs font-semibold uppercase tracking-[0.2em] mb-6">
-            Ready when you are
-          </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-extrabold text-ink leading-[1.04] tracking-[-0.02em] max-w-3xl mx-auto">
-            Book online with your{" "}
-            <span className="italic font-medium text-accent-ink">
-              Hauz Khas dentist
-            </span>{" "}
-            now
-          </h2>
-        </div>
+      <Container className="max-w-4xl">
+        <FadeIn>
+          <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-subtle mb-10">
+            Next Project
+          </div>
+        </FadeIn>
 
-        <div
-          className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 delay-200 ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+        <FadeIn delay={0.06} y={28}>
+          <h2 className="font-sans font-medium text-ink tracking-tightest leading-[1.02] text-3xl sm:text-4xl md:text-[56px] lg:text-[68px] mb-10 max-w-[20ch] text-balance">
+            Your website should make trust feel immediate.
+          </h2>
+        </FadeIn>
+
+        <FadeIn delay={0.16}>
+          <p className="text-ink-muted text-[17px] md:text-lg leading-relaxed max-w-[52ch] mb-14 text-pretty">
+            We partner with ambitious brands that care about perception,
+            clarity, and long-term positioning. If that&apos;s the kind of work
+            you&apos;re after, we&apos;d like to hear from you.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.24}>
           <Link
-            href={`tel:${CLINIC.phone}`}
-            className="group inline-flex items-center gap-2 bg-brand text-white text-base font-semibold pl-7 pr-2 py-2.5 rounded-full hover:bg-brand-light transition-all hover:scale-[1.03] active:scale-[0.98] shadow-card-hover"
+            href="mailto:hello@milvow.studio"
+            className="group inline-flex items-center gap-3 bg-ink text-paper text-[15px] font-medium pl-6 pr-2 py-2 rounded-full hover:bg-ink-soft transition-all duration-300"
           >
-            Book online
-            <span className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white group-hover:text-brand transition-colors">
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            Start a project
+            <span className="w-10 h-10 rounded-full bg-paper text-ink flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight className="w-4 h-4" />
             </span>
           </Link>
+        </FadeIn>
 
-          <a
-            href={`tel:${CLINIC.phone}`}
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-deep text-ink text-base font-semibold px-6 py-3 rounded-full transition-all hover:scale-[1.03]"
-          >
-            <Phone className="w-4 h-4" />
-            Call {CLINIC.phone}
-          </a>
-        </div>
-      </div>
-
-      <div
-        className={`relative max-w-6xl mx-auto mt-20 aspect-[16/7] rounded-[36px] overflow-hidden shadow-card-hover transition-all duration-1000 delay-300 ${
-          inView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-[0.97]"
-        }`}
-      >
-        <ImageWithFallback
-          src={SUPPORT_IMAGE}
-          alt="Dr Goel's friendly dental team"
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand/40 via-transparent to-transparent" />
-      </div>
+        <FadeIn delay={0.34}>
+          <div className="mt-20 pt-8 border-t border-ink-line/60 flex flex-wrap items-center gap-x-10 gap-y-3 text-[13px] text-ink-muted">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-subtle">
+              Or write directly
+            </span>
+            <a
+              href="mailto:hello@milvow.studio"
+              className="text-ink hover:opacity-70 transition-opacity"
+            >
+              hello@milvow.studio
+            </a>
+            <span className="text-ink-faint">·</span>
+            <span>Reply within one business day</span>
+          </div>
+        </FadeIn>
+      </Container>
     </section>
   );
 }

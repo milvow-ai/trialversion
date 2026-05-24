@@ -2,16 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dr Goel's Dental & Orthodontic Centre | Hauz Khas, New Delhi",
+  title: "Goel Dental — Case Study | Milvow",
   description:
-    "24 years of dental excellence. Dr. Rupender Goel — Orthodontist (MDS). Friendly, family-focused dental care in Hauz Khas, New Delhi. Call 9810110827.",
-  keywords:
-    "dentist Hauz Khas, family dentist Delhi, orthodontist New Delhi, dental implants, Invisalign, Dr Goel dental",
+    "How we redesigned a local dental practice into a premium digital brand. A case study in clarity, credibility, and perception.",
   openGraph: {
-    title: "Dr Goel's Dental & Orthodontic Centre",
+    title: "Goel Dental — Case Study",
     description:
-      "Friendly, family-focused dental care in Hauz Khas, New Delhi. 24 years of experience.",
-    type: "website",
+      "From invisible local clinic to a brand people trusted instantly.",
+    type: "article",
   },
 };
 
@@ -26,11 +24,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body className="bg-paper text-ink antialiased">{children}</body>
     </html>
   );
 }
